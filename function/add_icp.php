@@ -26,7 +26,6 @@
     $sql = "INSERT INTO telaah_icp (id_siswa, id_dosen, prodi, judul_ta, C1, C2, C3, C4, hasil_prodi) VALUES ('".$id_siswa."','".$id_dosen."','".$prodi."','".$judul."','".$c1."','".$c2."','".$c3."','".$c4."','".$hasil."')";
     mysqli_query($koneksi,$sql) or die (mysqli_error($koneksi));
 
-    
     //INISIALISASI
     $sql = "SELECT * FROM `telaah_icp` WHERE prodi = '$prodi' order by id_siswa";
     $result = mysqli_query($koneksi,$sql);
@@ -65,8 +64,8 @@
         $data[$row][2] = ($nt_c3 - $data[$row][2])/($nt_c3-$nr_c3);
         $data[$row][3] = ($nt_c4 - $data[$row][3])/($nt_c4-$nr_c4);
     }
-    
-    
+
+
     //NILAI S
     $s = array();
     for ($row = 0; $row < $y; $row++){
@@ -103,7 +102,7 @@
         }
         
     }
-    
+
     //HITUNG S R TERBESAR
     $s_max=0; $s_min=1; $r_max=0; $r_min=1;
     foreach ($s as $nilArr) {
@@ -141,7 +140,8 @@
         $sql = "UPDATE `telaah_icp` SET indeks_vikor = '$x' WHERE id = '$r'"; 
         mysqli_query($koneksi, $sql) or die (mysqli_error($koneksi));
     }
-     
+
+
     header("location:../icp.php");
 
 ?>

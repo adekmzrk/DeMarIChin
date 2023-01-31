@@ -7,6 +7,7 @@ $x = $_SESSION['user']['username'];
 $stmt = mysqli_query($koneksi, "SELECT nama_dosen from data_dosen WHERE username = '$x'");
 $nama_dosen = $stmt->fetch_assoc(); 
 
+
 ?>
 
             <div id="layoutSidenav_content">
@@ -16,6 +17,14 @@ $nama_dosen = $stmt->fetch_assoc();
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Daftar Telaah ICP Politeknik Siber dan Sandi Negara</li>
                         </ol>
+
+                        <h5 class="mt-4">Keterangan:</h5>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">C1 = Kesesuaian topik/tema dengan kompetensi lulusan Prodi</li>
+                            <li class="breadcrumb-item">C2 = Penelitian terukur</li>
+                            <li class="breadcrumb-item">C3 = Referensi utama mengacu ke penelitian 5 tahun terakhir</li>
+                            <li class="breadcrumb-item">C4 = Rekomendasi Penelaah</li>
+                        </ol>
                         
                         <?php
                                 if ($_SESSION['user']['cred'] == 'dosen' ) { ?>
@@ -23,6 +32,8 @@ $nama_dosen = $stmt->fetch_assoc();
                             Tambah Telaah Baru
                         </button>
                         <?php } ?>
+
+                        
 
                         <?php if(isset($_GET['edit_success'])){?>
                             <div class="alert alert-success">
